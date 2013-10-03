@@ -35,11 +35,11 @@ Follow these steps to setup your environment for the demo.
 
 1. Select the **http://geekquizdemo.azurewebsites.net** node, as shown in the following figure.
 
-	![Node Selection](Images/node-selection.png?raw=true)
+	![Node Selection](images/node-selection.png?raw=true)
 
 1. In the **Properties** window, update the **Url** field to point to the site you just created.
 
-	![Url Change](Images/url-change.png?raw=true)
+	![Url Change](images/url-change.png?raw=true)
 
 1. Save all files and close the solution.
 
@@ -61,33 +61,33 @@ This demo is composed of the following segments:
 
 1. Select the web sites tab.
 
-	![Web Sites](Images/web-sites.png?raw=true)
+	![Web Sites](images/web-sites.png?raw=true)
 
 1. Click the website where you deployed GeekQuiz during the setup steps.
 
 1. Open the scaling configuration page.
 
-	![Scale](Images/scale.png?raw=true)
+	![Scale](images/scale.png?raw=true)
 
 1. Change the web site's mode to **Standard**.
 
-	![Web Site Mode](Images/web-site-mode.png?raw=true)
+	![Web Site Mode](images/web-site-mode.png?raw=true)
 
 1. Clear all other web sites from the list of sites to be updated.
 
-	![Clear Web Sites](Images/clear-web-sites.png?raw=true)
+	![Clear Web Sites](images/clear-web-sites.png?raw=true)
 
 1. Show that there is only one instance.
 
-	![One Instance](Images/one-instance.png?raw=true)
+	![One Instance](images/one-instance.png?raw=true)
 
 1. Select the **CPU** metric for scaling.
 
-	![CPU scaling](Images/cpu-scaling.png?raw=true)
+	![CPU scaling](images/cpu-scaling.png?raw=true)
 
 1. Change the target CPU to 20-40.
 
-	![Target CPU](Images/target-cpu.png?raw=true)
+	![Target CPU](images/target-cpu.png?raw=true)
 
 	> **Speaking point:** Explain that this is done as we cannot ensure that a bigger load is generated with VS.
 
@@ -105,7 +105,7 @@ This demo is composed of the following segments:
 
 1. Run the load test.
 
-	![Run Load Test](Images/run-load-test.png?raw=true)
+	![Run Load Test](images/run-load-test.png?raw=true)
 
 1. Open a new instance of Visual Studio.
 
@@ -115,27 +115,27 @@ This demo is composed of the following segments:
 
 1. Select **Test** in the templates tree, and select **Web Performance and Load Test project**.
 
-	![Test Project](Images/test-project.png?raw=true)
+	![Test Project](images/test-project.png?raw=true)
 
 1. Click **OK**.
 
 1. Right-click **WebTest1** and select **Add Request**.
 
-	![Add Request](Images/add-request.png?raw=true)
+	![Add Request](images/add-request.png?raw=true)
 
 1. Select the new node.
 
 1. In the **Properties** window, update the **Url** field to point to the Azure web site.
 
-	![Url Change](Images/url-change.png?raw=true)
+	![Url Change](images/url-change.png?raw=true)
 
 1. Right-click **WebTest1** and select **Add Loop...**.
 
-	![Add loop](Images/add-loop.png?raw=true)
+	![Add loop](images/add-loop.png?raw=true)
 
 1. Select the **For Loop** rule.
 
-	![For Loop](Images/for-loop.png?raw=true)
+	![For Loop](images/for-loop.png?raw=true)
 
 1. Update the following values:
 	
@@ -143,37 +143,37 @@ This demo is composed of the following segments:
 	1. **Context Parameter Name:** Iterator.
 	1. **Increment Value:** 1.
 
-	![Values](Images/values.png?raw=true)
+	![Values](images/values.png?raw=true)
 
 1. Select the GeekQuiz request as the first and last item of the loop.
 
-	![Items](Images/items.png?raw=true)
+	![Items](images/items.png?raw=true)
 
 1. Click **OK**.
 
 1. In the **Solution Explorer**, right-click the **WebAndLoadTestProject1** project, expand the **Add** menu and select **Load Test...**. A wizard will start.
 
-	![Load Test](Images/load-test.png?raw=true)
+	![Load Test](images/load-test.png?raw=true)
 
 1. Click **Next**.
 
 1. Select **Do not use think times** and click **Next**.
 
-	![Think times](Images/think-times.png?raw=true)
+	![Think times](images/think-times.png?raw=true)
 
 1. Change the **User Count** to **250** users and click **Next**.
 
-	![User Count](Images/user-count.png?raw=true)
+	![User Count](images/user-count.png?raw=true)
 
 1. Select **Based on sequential test order** and click **Next**.
 
-	![Text Mix](Images/text-mix.png?raw=true)
+	![Text Mix](images/text-mix.png?raw=true)
 
 1. Click **Add...**.
 
 1. Double-click **Web Test 1** and click **OK**.
 
-	![Add Tests](Images/add-tests.png?raw=true)
+	![Add Tests](images/add-tests.png?raw=true)
 
 1. Click **Next**.
 
@@ -185,7 +185,7 @@ This demo is composed of the following segments:
 
 1. Set the load test duration to 5 minutes and click **Finish**.
 
-	![Load test duration](Images/load-test-duration.png?raw=true)
+	![Load test duration](images/load-test-duration.png?raw=true)
 
 1. Close the current instance of **Visual Studio**.
 
@@ -196,7 +196,7 @@ This demo is composed of the following segments:
 
 1. Navigate to the image that you uploaded to Azure storage during setup. Foe example, if the name of the storage account is _geekquizstorage_ the URL for the image will be _http://geekquizstorage.blob.core.windows.net/images/logo-big.png_.
 
-	![Logo big](Images/logo-big.png?raw=true)
+	![Logo big](images/logo-big.png?raw=true)
 
 1. Open the **GeekQuilz.sln** solution located under **source\end**.
 
@@ -206,21 +206,21 @@ This demo is composed of the following segments:
 
 1. Highlight the URL rewrite rule as shown in the following figure.
 
-	![Highlighting Rewrite Rule](Images/highlighting-rewrite-rule.png?raw=true)
+	![Highlighting Rewrite Rule](images/highlighting-rewrite-rule.png?raw=true)
 
 1. Back in Internet Explorer, open the deployed GeekQuiz site (log in if necessary).
 
-	![Geek Quiz with Image](Images/geek-quiz-with-image.png?raw=true)
+	![Geek Quiz with Image](images/geek-quiz-with-image.png?raw=true)
 
 1. Press **F12** to launch the development tools, select the **Network** tab and start recording.
 
-	![Start recording](Images/start-recording.png?raw=true)
+	![Start recording](images/start-recording.png?raw=true)
 
 1. Press **CTRL + F5** to refresh the web page.
 
 1. Once the page has finished loading, switch back to the development tools and show that the request for the image was redirected to Azure storage.
 
-	![Redirect in Dev Tools](Images/redirect-in-dev-tools.png?raw=true)
+	![Redirect in Dev Tools](images/redirect-in-dev-tools.png?raw=true)
 
 <a name="segment4" />
 ### Auto-scaling result ###
@@ -229,4 +229,4 @@ This demo is composed of the following segments:
 
 1. Show that a new instance was automatically deployed.
 
-	![New Instance](Images/new-instance.png?raw=true)
+	![New Instance](images/new-instance.png?raw=true)
