@@ -181,6 +181,8 @@ This demo is composed of the following segments:
 
 1. Select **Internet Explorer 10.0** as the browser type and click **Next**.
 
+	![Browser Type](images/browser-type.png?raw=true)
+
 1. In the **Counter Sets** page, click **Next**.
 
 1. Set the load test duration to 5 minutes and click **Finish**.
