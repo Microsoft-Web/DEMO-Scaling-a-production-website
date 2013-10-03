@@ -27,6 +27,8 @@ Follow these steps to setup your environment for the demo.
 
 1. Create a (free) web site in Windows Azure and deploy the web site that is part of the **GeekQuiz.sln** solution located under the **source\end** folder.
 
+1. Register a new user account.
+
 1. Open the **StressGeekQuiz.sln** solution located under **source\end**.
 
 1. In the **Solution Explorer**, double-click **WebTest1.webtest**.
@@ -50,6 +52,7 @@ This demo is composed of the following segments:
 1. [Configuring auto-scaling](#segment1)
 1. [Load testing with Visual Studio](#segment2)
 1. [Scaling GeekQuiz using Azure storage](#segment3)
+1. [Auto-scaling result](#segment4)
 
 <a name="segment1" />
 ### Configuring auto-scaling ###
@@ -88,7 +91,10 @@ This demo is composed of the following segments:
 
 	> **Speaking point:** Explain that this is done as we cannot ensure that a bigger load is generated with VS.
 
-1. Save the changes.
+1. Save the changes. 
+	
+	> **Note:** Don't close the management portal.
+
 
 <a name="segment2" />
 ### Load testing with Visual Studio ###
@@ -186,4 +192,41 @@ This demo is composed of the following segments:
 <a name="segment3" />
 ### Scaling GeekQuiz using Azure storage ###
 
+1. Open Internet Explorer.
+
+1. Navigate to the image that you uploaded to Azure storage during setup. Foe example, if the name of the storage account is _geekquizstorage_ the URL for the image will be _http://geekquizstorage.blob.core.windows.net/images/logo-big.png_.
+
+	![Logo big](Images/logo-big.png?raw=true)
+
 1. Open the **GeekQuilz.sln** solution located under **source\end**.
+
+1. Open the site's **web.config** file for edition.
+
+1. Find the `<system.webServer>` element.
+
+1. Highlight the URL rewrite rule as shown in the following figure.
+
+	![Highlighting Rewrite Rule](Images/highlighting-rewrite-rule.png?raw=true)
+
+1. Back in Internet Explorer, open the deployed GeekQuiz site (log in if necessary).
+
+	![Geek Quiz with Image](Images/geek-quiz-with-image.png?raw=true)
+
+1. Press **F12** to launch the development tools, select the **Network** tab and start recording.
+
+	![Start recording](Images/start-recording.png?raw=true)
+
+1. Press **CTRL + F5** to refresh the web page.
+
+1. Once the page has finished loading, switch back to the development tools and show that the request for the image was redirected to Azure storage.
+
+	![Redirect in Dev Tools](Images/redirect-in-dev-tools.png?raw=true)
+
+<a name="segment4" />
+### Auto-scaling result ###
+
+1. Back in the managemtn portal, press **CTRL + F5** to refresh the page.
+
+1. Show that a new instance was automatically deployed.
+
+	![New Instance](Images/new-instance.png?raw=true)
