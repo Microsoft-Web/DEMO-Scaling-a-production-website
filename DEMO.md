@@ -25,12 +25,165 @@ Follow these steps to setup your environment for the demo.
 
 	![NuGet Sources](Images/nuget-sources.png?raw=true)
 
+1. Create a (free) web site in Windows Azure and deploy the web site that is part of the **GeekQuiz.sln** solution located under the **source\end** folder.
+
+1. Open the **StressGeekQuiz.sln** solution located under **source\end**.
+
+1. In the **Solution Explorer**, double-click **WebTest1.webtest**.
+
+1. Select the **http://geekquizdemo.azurewebsites.net** node, as shown in the following figure.
+
+	![Node Selection](Images/node-selection.png?raw=true)
+
+1. In the **Properties** window, update the **Url** field to point to the site you just created.
+
+	![Url Change](Images/url-change.png?raw=true)
+
+1. Save all files and close the solution.
+
+1. Create a Windows Azure storage account (e.g. _geekquizstorage_), create a blob container named _images_ and upload the **logo-big.png** image located inside the **source\assets** folder.
+
 <a name="Demo" />
 ## Demo ##
 This demo is composed of the following segments:
 
-1. [A](#segment1)
-1. [B](#segment2)
+1. [Configuring auto-scaling](#segment1)
+1. [Load testing with Visual Studio](#segment2)
+1. [Scaling GeekQuiz using Azure storage](#segment3)
 
 <a name="segment1" />
-### A ###
+### Configuring auto-scaling ###
+
+1. Open the [Azure Management portal](https://manage.windowsazure.com/) and log in with your credentials.
+
+1. Select the web sites tab.
+
+	![Web Sites](Images/web-sites.png?raw=true)
+
+1. Click the website where you deployed GeekQuiz during the setup steps.
+
+1. Open the scaling configuration page.
+
+	![Scale](Images/scale.png?raw=true)
+
+1. Change the web site's mode to **Standard**.
+
+	![Web Site Mode](Images/web-site-mode.png?raw=true)
+
+1. Clear all other web sites from the list of sites to be updated.
+
+	![Clear Web Sites](Images/clear-web-sites.png?raw=true)
+
+1. Show that there is only one instance.
+
+	![One Instance](Images/one-instance.png?raw=true)
+
+1. Select the **CPU** metric for scaling.
+
+	![CPU scaling](Images/cpu-scaling.png?raw=true)
+
+1. Change the target CPU to 20-40.
+
+	![Target CPU](Images/target-cpu.png?raw=true)
+
+	> **Speaking point:** Explain that this is done as we cannot ensure that a bigger load is generated with VS.
+
+1. Save the changes.
+
+<a name="segment2" />
+### Load testing with Visual Studio ###
+
+1. Open the **StressGeekQuiz.sln** solution located under **source\end**.
+
+1. In the **Solution Explorer**, double-click **LoadTest1.loadtest**.
+
+1. Run the load test.
+
+	![Run Load Test](Images/run-load-test.png?raw=true)
+
+1. Open a new instance of Visual Studio.
+
+	> **Speaking point:** Let's take a look at how that solution can be built.
+
+1. Open the **New Project** dialog.
+
+1. Select **Test** in the templates tree, and select **Web Performance and Load Test project**.
+
+	![Test Project](Images/test-project.png?raw=true)
+
+1. Click **OK**.
+
+1. Right-click **WebTest1** and select **Add Request**.
+
+	![Add Request](Images/add-request.png?raw=true)
+
+1. Select the new node.
+
+1. In the **Properties** window, update the **Url** field to point to the Azure web site.
+
+	![Url Change](Images/url-change.png?raw=true)
+
+1. Right-click **WebTest1** and select **Add Loop...**.
+
+	![Add loop](Images/add-loop.png?raw=true)
+
+1. Select the **For Loop** rule.
+
+	![For Loop](Images/for-loop.png?raw=true)
+
+1. Update the following values:
+	
+	1. **Terminating value:** 1000.
+	1. **Context Parameter Name:** Iterator.
+	1. **Increment Value:** 1.
+
+	![Values](Images/values.png?raw=true)
+
+1. Select the GeekQuiz request as the first and last item of the loop.
+
+	![Items](Images/items.png?raw=true)
+
+1. Click **OK**.
+
+1. In the **Solution Explorer**, right-click the **WebAndLoadTestProject1** project, expand the **Add** menu and select **Load Test...**. A wizard will start.
+
+	![Load Test](Images/load-test.png?raw=true)
+
+1. Click **Next**.
+
+1. Select **Do not use think times** and click **Next**.
+
+	![Think times](Images/think-times.png?raw=true)
+
+1. Change the **User Count** to **250** users and click **Next**.
+
+	![User Count](Images/user-count.png?raw=true)
+
+1. Select **Based on sequential test order** and click **Next**.
+
+	![Text Mix](Images/text-mix.png?raw=true)
+
+1. Click **Add...**.
+
+1. Double-click **Web Test 1** and click **OK**.
+
+	![Add Tests](Images/add-tests.png?raw=true)
+
+1. Click **Next**.
+
+1. In the **Network Mix** page, click **Next**.
+
+1. Select **Internet Explorer 10.0** as the browser type and click **Next**.
+
+1. In the **Counter Sets** page, click **Next**.
+
+1. Set the load test duration to 5 minutes and click **Finish**.
+
+	![Load test duration](Images/load-test-duration.png?raw=true)
+
+1. Close the current instance of **Visual Studio**.
+
+<a name="segment3" />
+### Scaling GeekQuiz using Azure storage ###
+
+1. Open the **GeekQuilz.sln** solution located under **source\end**.
