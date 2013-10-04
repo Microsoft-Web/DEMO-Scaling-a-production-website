@@ -1,4 +1,4 @@
-﻿# Building a SPA interface using Ember.js #
+﻿# Scaling a production Web Site #
 
 ## Demo ##
 
